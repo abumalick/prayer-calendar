@@ -7,7 +7,7 @@ import type { APIRoute } from "astro";
 
 export const prerender = false;
 
-export const GET: APIRoute = ({ params, request }) => {
+export const GET: APIRoute = ({ request }) => {
   const url = new URL(request.url);
   const latitude = Number(url.searchParams.get("latitude"));
   const longitude = Number(url.searchParams.get("longitude"));
