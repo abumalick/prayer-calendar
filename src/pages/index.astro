@@ -1,0 +1,37 @@
+---
+import Layout from "~/layouts/Layout.astro";
+import PrayerTimeForm from "~/components/PrayerTimeForm";
+---
+
+<Layout
+  title="Prayer times ical generator"
+  description="Add easily your prayer times to google / apple calendar"
+>
+  <main class="main">
+    <h1 class="basmallah">بسم الله الرحمن الرحيم</h1>
+    <h2>Add prayer times to your google calendar</h2>
+    <ol>
+      <li>Fill the form below</li>
+      <li>Check the that the generated prayer times are correct</li>
+      <li>copy the generated url</li>
+      <li>Go to google calendar</li>
+      <li>In the bottom left click on '+' beside 'Other calendars'</li>
+      <li>Click "From url"</li>
+      <li>Paste the url and submit</li>
+      <li>Enjoy!</li>
+    </ol>
+
+    <PrayerTimeForm client:only />
+  </main>
+</Layout>
+
+<style>
+  .main {
+    max-width: 1000px;
+    margin: auto;
+    padding: 16px;
+  }
+  .basmallah {
+    text-align: center;
+  }
+</style>
