@@ -21,6 +21,13 @@ const { title, description } = Astro.props;
       defer
       data-domain="awqaate.com"
       src="https://plausible.io/js/script.js"></script>
+    <script>
+      window.plausible =
+        window.plausible ||
+        function () {
+          (window.plausible.q = window.plausible.q || []).push(arguments);
+        };
+    </script>
   </head>
   <body>
     <slot />

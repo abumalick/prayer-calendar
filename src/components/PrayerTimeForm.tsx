@@ -10,6 +10,12 @@ import { format } from "date-fns";
 import { useCallback, useMemo } from "react";
 import useStoredState from "~/hooks/useStoredState";
 
+declare global {
+  interface Window {
+    plausible: any;
+  }
+}
+
 interface PrayerTimeFormProps {}
 
 const METHODS = (
@@ -70,6 +76,11 @@ const PrayerTimeForm: React.FC<PrayerTimeFormProps> = () => {
       ) => {
         const value =
           "checked" in event.target ? event.target.checked : event.target.value;
+        window.plausible(`form_change_${key}`, {
+          props: {
+            value,
+          },
+        });
         setData((data) => ({
           ...data,
           [key]: value,
@@ -79,8 +90,10 @@ const PrayerTimeForm: React.FC<PrayerTimeFormProps> = () => {
   );
 
   const getLocation = useCallback(() => {
+    window.plausible("get_location");
     navigator.geolocation.getCurrentPosition(
       (position) => {
+        window.plausible("get_location_success");
         setData((data) => ({
           ...data,
           latitude: position.coords.latitude.toString(),
