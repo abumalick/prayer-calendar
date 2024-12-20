@@ -76,7 +76,7 @@ const PrayerTimeForm: React.FC<PrayerTimeFormProps> = () => {
       ) => {
         const value =
           "checked" in event.target ? event.target.checked : event.target.value;
-        window.plausible(`form_change_${key}`, {
+        window.plausible?.(`form_change_${key}`, {
           props: {
             value,
           },
@@ -90,10 +90,10 @@ const PrayerTimeForm: React.FC<PrayerTimeFormProps> = () => {
   );
 
   const getLocation = useCallback(() => {
-    window.plausible("get_location");
+    window.plausible?.("get_location");
     navigator.geolocation.getCurrentPosition(
       (position) => {
-        window.plausible("get_location_success");
+        window.plausible?.("get_location_success");
         setData((data) => ({
           ...data,
           latitude: position.coords.latitude.toString(),
