@@ -4,24 +4,33 @@ import PrayerTimeForm from "~/components/PrayerTimeForm";
 ---
 
 <Layout
-  title="Prayer times ical generator"
-  description="Add easily your prayer times to google / apple calendar"
+  title="Prayer Times iCal Generator"
+  description="Easily add your prayer times to Google or Apple Calendar"
 >
   <main class="main">
     <h1 class="basmallah">بسم الله الرحمن الرحيم</h1>
-    <h2>Add prayer times to your google calendar</h2>
+    <h2>Add Prayer Times to Your Google Calendar</h2>
     <ol>
-      <li>Fill the form below</li>
-      <li>Check the that the generated prayer times are correct</li>
-      <li>copy the generated url</li>
-      <li>Go to google calendar</li>
-      <li>In the bottom left click on '+' beside 'Other calendars'</li>
-      <li>Click "From url"</li>
-      <li>Paste the url and submit</li>
+      <li>Fill out the form below</li>
+      <li>Verify that the generated prayer times are correct</li>
+      <li>Copy the generated URL</li>
+      <li>Go to Google Calendar</li>
+      <li>In the bottom left, click on '+' beside 'Other calendars'</li>
+      <li>Click "From URL"</li>
+      <li>Paste the URL and submit</li>
       <li>Enjoy!</li>
     </ol>
 
     <PrayerTimeForm client:only="react" />
+    <h2 class="second-title">Troubleshooting</h2>
+    <h3>
+      Why doesn't the prayer time calendar sync from my Google account to the Apple Calendar on my iPhone?
+    </h3>
+    <p>
+      After adding your Google account to your iPhone, you need to enable
+      synchronization for the calendar to show up in the Apple Calendar on your iPhone. You can change synchronization settings on this
+      page: <a href="https://www.google.com/calendar/syncselect">https://www.google.com/calendar/syncselect</a>
+    </p>
   </main>
 </Layout>
 
@@ -34,4 +43,7 @@ import PrayerTimeForm from "~/components/PrayerTimeForm";
   .basmallah {
     text-align: center;
   }
+  .second-title {
+    margin-top: 32px;
+  }}
 </style>
