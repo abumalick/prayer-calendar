@@ -47,7 +47,7 @@ export function createPrayerTimesICal({
   includeLastThirdOfTheNight?: boolean;
 }) {
   const calendar = new Calendar(
-    "-//awqaate.com///Awqaat Salat Calendar 1.0//EN",
+    "-//prayer-calendar.com///Prayer Calendar 1.1//EN",
     btoa(url),
     name,
     url,

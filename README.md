@@ -1,4 +1,4 @@
-# Awqaate.com: Prayer times ical generator
+# prayer-calendar.com: Prayer times ical generator
 
 ## Libraries used:
 
