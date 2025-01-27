@@ -1,6 +1,10 @@
 ---
 import Layout from "~/layouts/Layout.astro";
 import PrayerTimeForm from "~/components/PrayerTimeForm";
+import { Image } from "astro:assets";
+import mobileLockScreenScreenshot from "../assets/images/mobile-lock-screen-screenshot.jpg";
+import mobilePrayerCalendarScreenshot from "../assets/images/mobile-prayer-calendar-screenshot.jpg";
+import desktopPrayerCalendarScreenshot from "../assets/images/desktop-prayer-calendar-screenshot.png";
 ---
 
 <Layout
@@ -9,7 +13,27 @@ import PrayerTimeForm from "~/components/PrayerTimeForm";
 >
   <main class="main">
     <h1 class="basmallah">بسم الله الرحمن الرحيم</h1>
-    <h2>Add Prayer Times to Your Google Calendar</h2>
+    <div class="image-wrapper">
+      <Image
+        class="image1"
+        src={desktopPrayerCalendarScreenshot}
+        alt="Desktop Prayer Calendar Screenshot"
+        width={800}
+      />
+      <Image
+        class="image2"
+        src={mobilePrayerCalendarScreenshot}
+        alt="Mobile Prayer Calendar Screenshot"
+        width={200}
+      />
+      <Image
+        class="image3"
+        src={mobileLockScreenScreenshot}
+        alt="Mobile Lock Screen Screenshot"
+        width={200}
+      />
+    </div>
+    <h2 class="subtitle">Add Prayer Times to Your Google Calendar</h2>
     <ol>
       <li>Fill out the form below</li>
       <li>Verify that the generated prayer times are correct</li>
@@ -22,17 +46,25 @@ import PrayerTimeForm from "~/components/PrayerTimeForm";
     </ol>
 
     <PrayerTimeForm client:only="react" />
-    <h2 class="second-title">Troubleshooting</h2>
+    <h2 class="subtitle">Troubleshooting</h2>
     <h3>
-      Why doesn't the prayer time calendar sync from my Google account to the Apple Calendar on my iPhone?
+      Why doesn't the prayer time calendar sync from my Google account to the
+      Apple Calendar on my iPhone?
     </h3>
     <p>
       After adding your Google account to your iPhone, you need to enable
-      synchronization for the calendar to show up in the Apple Calendar on your iPhone. You can change synchronization settings on this
-      page: <a href="https://www.google.com/calendar/syncselect">https://www.google.com/calendar/syncselect</a>
+      synchronization for the calendar to show up in the Apple Calendar on your
+      iPhone. You can change synchronization settings on this page: <a
+        href="https://www.google.com/calendar/syncselect"
+        >https://www.google.com/calendar/syncselect</a
+      >
     </p>
-    <h2 class="second-title">Feedback</h2>
-    <p>You are welcome to send your feedback at <a href="mailto:contact@prayer-calendar.com">contact@prayer-calendar.com</a></p>
+    <h2 class="subtitle">Feedback</h2>
+    <p>
+      You are welcome to send your feedback at <a
+        href="mailto:contact@prayer-calendar.com">contact@prayer-calendar.com</a
+      >
+    </p>
   </main>
 </Layout>
 
@@ -40,12 +72,45 @@ import PrayerTimeForm from "~/components/PrayerTimeForm";
   .main {
     max-width: 1000px;
     margin: auto;
-    padding: 16px;
+    padding: 20px;
   }
   .basmallah {
     text-align: center;
   }
-  .second-title {
+  .image-wrapper {
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 32px;
+    overflow: hidden;
+    img {
+      width: "100%";
+      height: auto;
+    }
+  }
+  .image1,
+  .image3 {
+    display: none;
+  }
+
+  .subtitle {
     margin-top: 32px;
-  }}
+  }
+  @media (min-width: 600px) {
+    .image-wrapper {
+      flex-direction: row;
+    }
+    .image1 {
+      display: block;
+      width: 50%;
+    }
+
+    .image2,
+    .image3 {
+      display: block;
+      width: 25%;
+    }
+  }
 </style>

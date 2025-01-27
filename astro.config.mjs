@@ -4,6 +4,7 @@ import cloudflare from "@astrojs/cloudflare";
 
 // https://astro.build/config
 export default defineConfig({
+  site: "https://prayer-calendar.com",
   adapter: cloudflare(),
   integrations: [react()],
   output: "hybrid",
