@@ -1,33 +1,59 @@
-# prayer-calendar.com: Prayer times ical generator
+# Prayer Times iCal Generator
 
-## Libraries used:
+A web application that generates iCalendar (.ics) files for Islamic prayer times, allowing users to easily add prayer schedules to Google Calendar, Apple Calendar, and other calendar applications.
 
-- [Picnic css](https://picnicss.com/documentation)
-- [React.js](https://reactjs.org/)
+## Features
+
+- Generate personalized prayer time calendars based on location and calculation method
+- Support for multiple Islamic prayer time calculation methods
+- Automatic iCal file generation for seamless calendar integration
+- Responsive design with mobile and desktop screenshots
+- Step-by-step instructions for adding to Google Calendar
+- Troubleshooting guide for common issues (e.g., iPhone sync)
+
+## Tech Stack
+
+- **Framework**: [Astro](https://astro.build/) - Static site generator
+- **Frontend**: [React](https://reactjs.org/) - Interactive components
+- **Styling**: [Picnic CSS](https://picnicss.com/documentation) - Lightweight CSS framework
+- **Prayer Calculations**: [Adhan](https://github.com/batoulapps/adhan-js) - Islamic prayer times library
+- **Date Handling**: [date-fns](https://date-fns.org/) - Modern JavaScript date utility library
+- **Deployment**: [Cloudflare Pages](https://pages.cloudflare.com/)
 
 ## 🚀 Project Structure
 
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
+```
 /
 ├── public/
-│   └── favicon.svg
+│   ├── favicon.svg
+│   └── images/
+│       └── (screenshots and assets)
 ├── src/
+│   ├── assets/
+│   │   └── images/
+│   │       └── (optimized images)
 │   ├── components/
-│   │   └── Card.astro
+│   │   ├── PrayerTimeForm.tsx
+│   │   └── (other components)
+│   ├── hooks/
+│   │   └── useStoredState.ts
 │   ├── layouts/
 │   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
+│   ├── pages/
+│   │   ├── index.astro
+│   │   └── ical.ts
+│   └── utils/
+│       ├── Calendar.ts
+│       └── ical-generator.ts
+├── astro.config.mjs
+├── package.json
+├── tsconfig.json
+└── README.md
 ```
 
 Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
+Components are placed in `src/components/`, and static assets like images are stored in the `public/` directory.
 
 ## 🧞 Commands
 
@@ -35,17 +61,19 @@ All commands are run from the root of the project, from a terminal:
 
 | Command                   | Action                                           |
 | :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+| `bun install`             | Installs dependencies                            |
+| `bun run dev`             | Starts local dev server at `localhost:4321`      |
+| `bun run build`           | Build your production site to `./dist/`          |
+| `bun run preview`         | Preview your build locally, before deploying     |
+| `bun run astro ...`       | Run CLI commands like `astro add`, `astro check` |
+| `bun run astro -- --help` | Get help using the Astro CLI                     |
 
 ## Deployment
 
-This project is deployed automatically on cloudflare pages: https://dash.cloudflare.com/9ab550becc556ce60d4250bfdc48224c/pages/view/awqaate-com
+This project is deployed on Cloudflare Pages and is publicly available at: [https://prayer-calendar.com/](https://prayer-calendar.com/)
+
+## Contributing
+
+This project is open source. Feel free to submit issues, feature requests, or pull requests.
+
+For feedback, contact us at [contact@prayer-calendar.com](mailto:contact@prayer-calendar.com)
