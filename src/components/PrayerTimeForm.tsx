@@ -75,7 +75,9 @@ const PrayerTimeForm: React.FC<PrayerTimeFormProps> = () => {
           | React.ChangeEvent<HTMLSelectElement>,
       ) => {
         const value =
-          "checked" in event.target ? event.target.checked : event.target.value;
+          event.target.type === "checkbox"
+            ? event.target.checked
+            : event.target.value;
         window.plausible?.(`form_change_${key}`, {
           props: {
             value,
