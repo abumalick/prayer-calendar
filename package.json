@@ -10,14 +10,14 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/check": "^0.9.8",
-    "@astrojs/cloudflare": "^13.2.0",
-    "@astrojs/react": "^5.0.4",
+    "@astrojs/check": "^0.9.10",
+    "@astrojs/cloudflare": "^14.3.1",
+    "@astrojs/react": "^6.0.5",
     "@tailwindcss/vite": "^4.2.4",
     "@types/react": "^18.3.28",
     "@types/react-dom": "^18.3.7",
     "adhan": "^4.4.3",
-    "astro": "^6.1.9",
+    "astro": "^7.3.2",
     "date-fns": "^3.6.0",
     "picnic": "^7.1.0",
     "react": "^18.3.1",
@@ -30,6 +30,7 @@
   },
   "devDependencies": {
     "prettier": "^3.8.3",
-    "prettier-plugin-astro": "^0.14.1"
+    "prettier-plugin-astro": "^0.14.1",
+    "wrangler": "^4.130.0"
   }
 }
