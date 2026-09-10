@@ -8,7 +8,8 @@
     "build": "astro check && astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "deploy": "astro build && wrangler deploy --routes 'prayer-calendar.com/*'"
+    "deploy": "astro build && wrangler deploy --routes 'prayer-calendar.com/*'",
+    "deploy:www": "wrangler deploy --config workers/www-redirect/wrangler.jsonc"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.10",

@@ -11,6 +11,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 | `bun run build`  | Type-check (`astro check`) then build to `dist/` |
 | `bun run preview`| Preview production build locally               |
 | `bun run deploy` | Build and deploy to Cloudflare Workers         |
+| `bun run deploy:www` | Deploy the www redirect Worker (rarely changes) |
 
 No test suite is configured.
 
@@ -23,6 +24,8 @@ Astro 7 app with React interactive islands, deployed to **Cloudflare Workers** v
 `wrangler.jsonc` holds the Worker config, but the adapter regenerates it into `dist/server/wrangler.json` at build time and **drops the `routes` key**. The production route therefore lives in the `deploy` script rather than the config file — editing `routes` in `wrangler.jsonc` has no effect.
 
 The adapter dropped Cloudflare Pages support in v13, so this project cannot be deployed to Pages. There is no Git-connected auto-deploy; `bun run deploy` is the only path to production.
+
+`workers/www-redirect/` is a separate one-file Worker that 301s `www.prayer-calendar.com` to the apex. It exists because the zone's `www` record is a proxied placeholder with no origin, which returns 522 unless something answers at the edge. Cloudflare's own answer to this is a dashboard Redirect Rule; a Worker on the hostname does the same job while keeping the rule in version control. It is deployed separately from the site and only needs redeploying if the redirect itself changes.
 
 ### Request flow
 

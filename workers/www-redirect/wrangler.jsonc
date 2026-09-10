@@ -1,0 +1,13 @@
+{
+  "$schema": "../../node_modules/wrangler/config-schema.json",
+  "name": "prayer-calendar-www-redirect",
+  "main": "index.ts",
+  "compatibility_date": "2026-09-10",
+  // Not built by the Astro adapter, so routes declared here are honoured.
+  "routes": [
+    {
+      "pattern": "www.prayer-calendar.com/*",
+      "zone_name": "prayer-calendar.com"
+    }
+  ]
+}
