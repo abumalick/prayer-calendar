@@ -10,12 +10,19 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 | `bun run dev`    | Start dev server at localhost:4321              |
 | `bun run build`  | Type-check (`astro check`) then build to `dist/` |
 | `bun run preview`| Preview production build locally               |
+| `bun run deploy` | Build and deploy to Cloudflare Workers         |
 
 No test suite is configured.
 
 ## Architecture
 
-Astro 4 app with React interactive islands, deployed to **Cloudflare Pages** via `@astrojs/cloudflare` adapter. Output mode is `hybrid` (static by default, opt-in SSR per route).
+Astro 7 app with React interactive islands, deployed to **Cloudflare Workers** via the `@astrojs/cloudflare` adapter. Static by default, with opt-in SSR per route.
+
+### Deployment
+
+`wrangler.jsonc` holds the Worker config, but the adapter regenerates it into `dist/server/wrangler.json` at build time and **drops the `routes` key**. The production route therefore lives in the `deploy` script rather than the config file — editing `routes` in `wrangler.jsonc` has no effect.
+
+The adapter dropped Cloudflare Pages support in v13, so this project cannot be deployed to Pages. There is no Git-connected auto-deploy; `bun run deploy` is the only path to production.
 
 ### Request flow
 
