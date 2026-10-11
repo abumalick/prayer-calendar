@@ -41,7 +41,7 @@ The adapter dropped Cloudflare Pages support in v13, so this project cannot be d
 - **adhan** — Islamic prayer time calculations (`PrayerTimes`, `SunnahTimes`, `CalculationMethod`)
 - **date-fns** — date formatting
 - **picnic** — lightweight CSS framework (imported globally in Layout)
-- **Plausible** — analytics via `window.plausible` (custom event domain)
+- **Rybbit** — self-hosted analytics (`pulse.h2.limited`, site ID 5); custom events via `window.rybbit.event`
 
 ### Conventions
 

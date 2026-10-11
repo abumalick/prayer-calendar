@@ -12,7 +12,9 @@ import useStoredState from "~/hooks/useStoredState";
 
 declare global {
   interface Window {
-    plausible: any;
+    rybbit?: {
+      event: (name: string, properties?: Record<string, unknown>) => void;
+    };
   }
 }
 
@@ -78,11 +80,7 @@ const PrayerTimeForm: React.FC<PrayerTimeFormProps> = () => {
           event.target.type === "checkbox"
             ? event.target.checked
             : event.target.value;
-        window.plausible?.(`form_change_${key}`, {
-          props: {
-            value,
-          },
-        });
+        window.rybbit?.event(`form_change_${key}`, { value });
         setData((data) => ({
           ...data,
           [key]: value,
@@ -92,10 +90,10 @@ const PrayerTimeForm: React.FC<PrayerTimeFormProps> = () => {
   );
 
   const getLocation = useCallback(() => {
-    window.plausible?.("get_location");
+    window.rybbit?.event("get_location");
     navigator.geolocation.getCurrentPosition(
       (position) => {
-        window.plausible?.("get_location_success");
+        window.rybbit?.event("get_location_success");
         setData((data) => ({
           ...data,
           latitude: position.coords.latitude.toString(),
