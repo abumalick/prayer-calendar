@@ -1,0 +1,63 @@
+---
+import Layout from "~/layouts/Layout.astro";
+---
+
+<Layout
+  title="Privacy - Prayer Times iCal Generator"
+  description="How prayer-calendar.com handles your data"
+>
+  <main class="main">
+    <h1>Privacy</h1>
+    <p><a href="/">Back to the prayer times generator</a></p>
+
+    <h2>Website analytics</h2>
+    <p>
+      This section is about visits to the prayer-calendar.com website pages,
+      not the calendar feed your calendar app downloads. We use <a
+        href="https://github.com/rybbit-io/rybbit">Rybbit</a
+      >, open-source analytics that we host ourselves at pulse.h2.limited.
+    </p>
+    <ul>
+      <li>
+        The analytics use no cookies and store nothing on your device. (The
+        form separately remembers your own settings in your browser's local
+        storage so you don't have to re-enter them.)
+      </li>
+      <li>
+        To count unique visitors, your IP address and user agent are hashed
+        together with a salt specific to this site that changes every day, so
+        you cannot be recognised from one day to the next. Your raw IP address
+        is not stored.
+      </li>
+      <li>
+        We collect: the page URL and query parameters, the referrer, your
+        browser and operating system (with versions), device type, screen size,
+        language, and a coarse location (country, region, city) derived from
+        your IP address at the time of the request.
+      </li>
+      <li>
+        We also record how the form is used: when a form field changes, the
+        field name and the value you chose or typed (including coordinates you
+        type in), and when the "Get your location" button is used and succeeds.
+      </li>
+      <li>
+        This data stays on our own server. No third party receives it.
+      </li>
+    </ul>
+
+    <h2>Contact</h2>
+    <p>
+      Questions: <a href="mailto:contact@prayer-calendar.com"
+        >contact@prayer-calendar.com</a
+      >
+    </p>
+  </main>
+</Layout>
+
+<style>
+  .main {
+    max-width: 1000px;
+    margin: auto;
+    padding: 20px;
+  }
+</style>
